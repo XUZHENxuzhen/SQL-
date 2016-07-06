@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "DataTool.h"
+#import "PandianParam.h"
 
 @interface ViewController ()
 
@@ -16,12 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+   
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)test{
+    [DataTool createBaseTable];
+    [DataTool inserDataForTableWith:@"gongke" Quantity:2];
+    //    [DataTool inserDataForTableWith:@"zhangli" Quantity:1];
+    [DataTool inserDataForTableWith:@"xuzhe" Quantity:1];
+    //    [DataTool inserDataForTableWith:@"xuzhe" Quantity:2];
+    NSArray *arr =   [DataTool DataArry];
+    for (PandianParam *param  in arr) {
+        NSLog(@"%@",param.Barcode);
+        NSLog(@"%d",param.Quantity);
+    }
 }
 
 @end
